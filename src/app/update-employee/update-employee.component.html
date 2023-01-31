@@ -1,0 +1,52 @@
+<div class="col-md-6 offset-md-3 " style="padding-top: 60px">
+    <h3>Update Employee</h3>
+<form (ngSubmit)= "onSubmit()">
+
+    <div class="form-group">
+        <label>First-name</label>
+        <input type="text" class="form-control" id="firstName"
+        [(ngModel)]= "employee.fname" name="firstName"> 
+
+    </div>
+    <div class="form-group">
+        <label>Last-name</label>
+        <input type="text" class="form-control" id="lastName"
+        [(ngModel)]= "employee.lname" name="lastName"> 
+
+    </div>
+    <div class="form-group">
+        <label>Email-Id</label>
+        <input type="text" class="form-control" id="email"
+        [(ngModel)]= "employee.email" name="email"> 
+    </div><br>
+
+    
+    <!-- <div class="form-group">
+        <label>Gender</label>
+        <select type="text" class="form-control" id="gender"
+        [(ngModel)]= "employee.gender" name="gender"> 
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        </select>
+    </div> -->
+    
+    <div class="custom-control custom-radio">
+        <label>Gender</label>&nbsp;
+        <input id="male"  [(ngModel)]= "employee.gender"  type="radio" class="custom-control" value="male" name="gender" ngModel>
+        <label class="custom-control" for="male">Male</label>&nbsp;
+        <input id="female"  [(ngModel)]= "employee.gender"  type="radio" class="custom-control" value="female" name="gender" ngModel>
+        <label class="custom-control" for="female">Female</label>
+     </div><br>
+
+    <div class="form-group">
+        <label>Hobby</label><br>
+      <div *ngFor= "let obj of hobbyArr">
+        <input type="checkbox" value= "{{obj.value}}" (change)= "hobbyChange($event)" 
+        [checked]= "selectedHobby.indexOf(obj.value) != -1">{{obj.key}}
+      </div> 
+
+    </div>
+    <br>
+    <button class="btn btn-success" type="submit">Submit</button>
+</form>
+</div>
